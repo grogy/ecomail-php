@@ -459,6 +459,7 @@ class Ecomail
             if ($http_code < 200 || $http_code > 299) {
                 return array(
                     'error' => $http_code,
+                    'message' => $output,
                 );
             }
         }
