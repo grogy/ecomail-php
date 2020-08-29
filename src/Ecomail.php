@@ -456,10 +456,12 @@ class Ecomail
         // Check HTTP status code
         if (!curl_errno($ch)) {
             $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
             if ($http_code < 200 || $http_code > 299) {
                 return array(
                     'error' => $http_code,
                     'message' => $output,
+                    'content-type' => $content_type,
                 );
             }
         }
